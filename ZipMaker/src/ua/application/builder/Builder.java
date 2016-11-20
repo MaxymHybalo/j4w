@@ -17,7 +17,7 @@ public class Builder {
 
     public Builder(String rootPath){
         files = new ArrayList<>();
-        path = new File(rootPath+"/");
+        path = new File(rootPath);
     }
 
     public void build(){
@@ -37,15 +37,15 @@ public class Builder {
     }
 
     private void zip(File file, ArrayList<File> files){
-        try(ZipOutputStream out = new ZipOutputStream(new FileOutputStream(file));) {
+        try(ZipOutputStream out = new ZipOutputStream(new FileOutputStream(file))) {
             for (File f : files) {
                 String entryName = f.getAbsolutePath().replaceFirst(path.getAbsolutePath(), "");
-                System.out.println(file.getName()+" added: " + entryName);
+                System.out.println(file.getName()+ " added: " + entryName);
                 ZipEntry entry = new ZipEntry(entryName);
                 out.putNextEntry(entry);
                 write(out, f);
             }
-            System.out.println("To " + file.getName() + " added: " + files.size() +" files");
+            System.out.println("To " + file.getName() + " added: " + files.size() + " files");
             out.closeEntry();
             out.close();
         }catch (IOException e){
@@ -53,7 +53,7 @@ public class Builder {
         }
     }
 
-    private void getFiles(File path,String ... extension){
+    private void getFiles(File path, String ... extension){
         File [] files = path.listFiles(file -> file.isDirectory() || extensionMatches(file.getName(),extension));
         for(File f: files){
             if(f.isFile()) this.files.add(f);
@@ -61,9 +61,9 @@ public class Builder {
         }
     }
 
-    private boolean extensionMatches(String currentExtension,String [] extensions){
+    private boolean extensionMatches(String fileName,String [] extensions){
         for(String e:extensions) {
-            if(currentExtension.endsWith(e)) return true;
+            if(fileName.endsWith(e)) return true;
         }
         return false;
     }
