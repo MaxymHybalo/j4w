@@ -29,7 +29,7 @@ public class Builder {
             getFiles(path, audioExtensions);
             zip(new File(outputDirectory + File.separator + audioZipName), files);
             files.clear();
-
+            
             getFiles(path, videoExtensions);
             zip(new File(outputDirectory + File.separator+videoZipName), files);
             files.clear();
@@ -40,10 +40,10 @@ public class Builder {
         try(ZipOutputStream out = new ZipOutputStream(new FileOutputStream(file))) {
             for (File f : files) {
                 String entryName = f.getAbsolutePath().replaceFirst(path.getAbsolutePath(), "");
-                System.out.println(file.getName()+ " added: " + entryName);
                 ZipEntry entry = new ZipEntry(entryName);
                 out.putNextEntry(entry);
                 write(out, f);
+                System.out.println(file.getName()+ " added: " + entryName);
             }
             System.out.println("To " + file.getName() + " added: " + files.size() + " files");
             out.closeEntry();
@@ -73,7 +73,7 @@ public class Builder {
     }
 
     private void write(ZipOutputStream stream, File file){
-        byte [] buffer = new byte[2048];
+        byte [] buffer = new byte[1024];
         try(FileInputStream readStream = new FileInputStream(file);) {
             int length;
             while ((length = readStream.read(buffer))>1){
