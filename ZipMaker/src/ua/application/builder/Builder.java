@@ -29,7 +29,7 @@ public class Builder {
             getFiles(path, audioExtensions);
             zip(new File(outputDirectory + File.separator + audioZipName), files);
             files.clear();
-            
+
             getFiles(path, videoExtensions);
             zip(new File(outputDirectory + File.separator+videoZipName), files);
             files.clear();
