@@ -8,7 +8,7 @@ import java.util.Scanner;
 public class Triangle implements Shape {
     private double a,b,c;
 
-    Triangle(double a,double b,double c){
+    public Triangle(double a,double b,double c){
         this.a = a;
         this.b = b;
         this.c = c;
@@ -43,7 +43,7 @@ public class Triangle implements Shape {
         if(!isExist()) return "\nThe triangle doesn't exist!";
         return "\nTriangle area equals: " + String.format("%.3f",calculateArea()) + "\nTriangle perimeter equals: "+String.format("%.3f",calculatePerimeter()) ;
     }
-    private boolean isExist(){
+    public boolean isExist(){
         return (a<b+c) & (b<c+a) & (c<a+b);
     }
 }

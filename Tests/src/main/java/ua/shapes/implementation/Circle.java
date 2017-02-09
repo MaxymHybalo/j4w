@@ -27,4 +27,8 @@ public class Circle  implements Shape{
     public String toString() {
         return "\nCircle area equals: " + String.format("%.3f",calculateArea()) + "\nCircle length equals: "+String.format("%.3f",calculatePerimeter()) ;
     }
+
+    public void setR(double r) {
+        this.r = r;
+    }
 }

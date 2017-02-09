@@ -34,4 +34,16 @@ public class Rectangle implements Shape{
         return  "\nRectangle area equals: " + String.format("%.3f",calculateArea()) +"\nRectangle perimeter equals: "+String.format("%.3f",calculatePerimeter())
                 + "\nRectangle consists from triangles, triangle properties: " + triangle.toString();
     }
+
+    public void setA(double a) {
+        this.a = a;
+    }
+
+    public void setB(double b) {
+        this.b = b;
+    }
+
+    public void setTriangle(Triangle triangle) {
+        this.triangle = triangle;
+    }
 }

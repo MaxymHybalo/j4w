@@ -52,13 +52,13 @@ public class Application {
     public ShapeType readShapeName(){
 
         ShapeType type = null;
-        Scanner scanner = new Scanner(System.in);
+
 
         boolean isRead = false;
 
         while (!isRead){
             System.out.println("Write shape name(Like:circle,square,rectangle,triangle):");
-            String shapeName = scanner.next();
+            String shapeName = input();
             for (ShapeType s:
                  ShapeType.values()) {
                 if(shapeName.toUpperCase().equals(s.toString())){
@@ -68,5 +68,10 @@ public class Application {
             }
         }
         return type;
+    }
+
+    public String input(){
+        Scanner scanner = new Scanner(System.in);
+        return scanner.next();
     }
 }
