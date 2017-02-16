@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+    <import resource="components.xml"/>
+
+    <bean id="car" class="ua.j4w.entity.Car" scope="singleton">
+        <constructor-arg>
+            <array>
+                <ref bean="summWheel"></ref>
+                <ref bean="summWheel"></ref>
+                <ref bean="winWheel"></ref>
+                <ref bean="winWheel"></ref>
+            </array>
+        </constructor-arg>
+        <constructor-arg type="ua.j4w.entity.Engine" ref= "v6engine"/>
+    </bean>
+</beans>

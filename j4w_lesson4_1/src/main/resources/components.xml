@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+    <bean id="v6engine" class="ua.j4w.entity.Engine">
+        <constructor-arg type="java.lang.Double" value="5.6"/>
+    </bean>
+
+    <bean id="winWheel"  class="ua.j4w.entity.Wheel">
+        <constructor-arg ref="winterTyres"/>
+    </bean>
+
+    <bean id="summWheel"  class="ua.j4w.entity.Wheel">
+        <constructor-arg ref="summerTyres"/>
+    </bean>
+
+    <bean id="winterTyres" class="ua.j4w.entity.WinterTyres">
+        <constructor-arg type="java.lang.Double" value="25"/>
+        <constructor-arg type="java.lang.String" value="TOYO Winter Tyres"/>
+    </bean>
+
+    <bean id="summerTyres" class="ua.j4w.entity.SummerTyres">
+        <constructor-arg type="java.lang.Double" value="23"/>
+        <constructor-arg type="java.lang.String" value="AKG Summer Tyres"/>
+    </bean>
+</beans>
