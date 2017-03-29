@@ -9,6 +9,9 @@ public class Engine {
         this.capacity = capacity;
     }
 
+    public void start(){
+        System.out.println("Engine started...");
+    }
     public Double getCapacity() {
         return capacity;
     }

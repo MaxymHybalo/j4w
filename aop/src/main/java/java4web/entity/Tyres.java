@@ -16,7 +16,7 @@ public class Tyres {
         return size;
     }
 
-    public void setSize(Double size) {
+    public void setSize(Double size) throws Exception {
         this.size = size;
     }
 
@@ -30,6 +30,6 @@ public class Tyres {
 
     @Override
     public String toString() {
-        return "\tsize: " + size + "\n\tname: " + name;
+        return "\tsize: " + getSize() + "\n\tname: " + name;
     }
 }

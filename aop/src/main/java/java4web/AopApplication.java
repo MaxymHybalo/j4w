@@ -12,6 +12,10 @@ public class AopApplication {
 	public static void main(String[] args) {
 		ApplicationContext context = new AnnotationConfigApplicationContext(AopApplication.class);
 		Car car = context.getBean("javaCar", Car.class);
-		System.out.println(car.toString());
+		try {
+			car.turnOn();
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
 	}
 }

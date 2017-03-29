@@ -12,6 +12,18 @@ public class Car {
         this.engine = engine;
     }
 
+    public void turnOn() throws Exception{
+        checkWheels();
+        engine.start();
+        System.out.println("Car is turned on!");
+    }
+    private void checkWheels() throws Exception{
+        for (Wheel w: wheels) {
+            if (w == null){
+                throw new Exception("Not enough wheels");
+            }
+        }
+    }
     public Wheel[] getWheels() {
         return wheels;
     }
