@@ -9,6 +9,8 @@ import java4web.entity.Engine;
 import java4web.entity.Tyres;
 import java4web.entity.Wheel;
 
+import java.util.ArrayList;
+
 @Configuration
 @PropertySource("classpath:values.properties")
 public class ApplicationConfiguration {
@@ -24,7 +26,7 @@ public class ApplicationConfiguration {
 
     @Bean(name = "javaCar")
     public Car getCar(){
-        return new Car(new Wheel[]{wheel(),wheel(),wheel()}, engine());
+        return new Car(new ArrayList<Wheel>(), engine());
     }
 
     @Bean

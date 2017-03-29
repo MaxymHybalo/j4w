@@ -1,42 +1,24 @@
 package java4web.entity;
 
+import lombok.Getter;
+import lombok.Setter;
+import org.springframework.stereotype.Component;
+
+import java.util.List;
+
+@Getter
+@Setter
+@Component
 public class Car {
 
+    private Integer id;
 
-    private Wheel wheels[];
+    private List<Wheel> wheels;
 
     private Engine engine;
 
-    public Car(Wheel wheels [], Engine engine) {
+    public Car(List<Wheel> wheels , Engine engine) {
         this.wheels = wheels;
-        this.engine = engine;
-    }
-
-    public void turnOn() throws Exception{
-        checkWheels();
-        engine.start();
-        System.out.println("Car is turned on!");
-    }
-    private void checkWheels() throws Exception{
-        for (Wheel w: wheels) {
-            if (w == null){
-                throw new Exception("Not enough wheels");
-            }
-        }
-    }
-    public Wheel[] getWheels() {
-        return wheels;
-    }
-
-    public void setWheels(Wheel[] wheels) {
-        this.wheels = wheels;
-    }
-
-    public Engine getEngine() {
-        return engine;
-    }
-
-    public void setEngine(Engine engine) {
         this.engine = engine;
     }
 
