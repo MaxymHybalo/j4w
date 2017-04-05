@@ -9,7 +9,5 @@ public interface GuestDao {
 
     void save(Guest guest);
 
-    Guest find(int id);
-
     List<Guest> findAll();
 }

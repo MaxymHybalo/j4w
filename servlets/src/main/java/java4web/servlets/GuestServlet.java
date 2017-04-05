@@ -3,7 +3,6 @@ package java4web.servlets;
 import java4web.servlets.config.ApplicationConfiguration;
 import java4web.servlets.dao.GuestDao;
 import java4web.servlets.domain.Guest;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.annotation.AnnotationConfigApplicationContext;
 
@@ -21,7 +20,7 @@ public class GuestServlet extends HttpServlet{
 
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        System.out.println("In servlet chain");
+        System.out.println("Called GET method");
         List<Guest> guests = dao.findAll();
         guests.forEach(System.out::println);
         request.setAttribute("guests", guests);
@@ -39,7 +38,6 @@ public class GuestServlet extends HttpServlet{
         dao.save(guest);
         System.out.println("New Guest: " + guest.toString());
         response.sendRedirect("/");
-
     }
 
     @Override

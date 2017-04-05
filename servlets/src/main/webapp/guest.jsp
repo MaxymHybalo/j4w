@@ -23,14 +23,12 @@
             margin-top: 0.5em;
         }
 
-
         table{
             min-width: 600px;
             border: solid;
         }
 
         tr {
-
             padding: 5px;
         }
 
@@ -39,10 +37,8 @@
 
         }
 
-
     </style>
     <body>
-
         <h1>Guest Page</h1>
         <div class="form-container">
         <h2>New Guest</h2>

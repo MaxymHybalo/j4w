@@ -49,11 +49,6 @@ public class GuestDaoImpl implements GuestDao {
     }
 
     @Override
-    public Guest find(int id) {
-        return null;
-    }
-
-    @Override
     public List<Guest> findAll() {
         List<Guest> guests = template.query(
                 "select * from guest",
