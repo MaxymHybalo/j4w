@@ -1,0 +1,7 @@
+car:
+  engine:
+    capacity: 3.5
+  wheel:
+    tyres:
+      size: 19
+      name: "Michelin"
