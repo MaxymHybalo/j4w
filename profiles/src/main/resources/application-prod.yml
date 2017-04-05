@@ -1,0 +1,7 @@
+car:
+  engine:
+    capacity: 2.5
+  wheel:
+    tyres:
+      size: 17
+      name: "Pirelli"

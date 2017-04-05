@@ -1,0 +1,7 @@
+car:
+    engine:
+        capacity: 1.2
+    wheel:
+        tyres:
+            size: 13
+            name: "Hankook"
