@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8"/>
+    <title>Car Dispatcher</title>
+    <!-- Material Design fonts -->
+    <link rel="stylesheet" type="text/css" href="//fonts.googleapis.com/css?family=Roboto:300,400,500,700"/>
+    <link rel="stylesheet" type="text/css" href="//fonts.googleapis.com/icon?family=Material+Icons"/>
+    <!-- Bootstrap -->
+    <link rel="stylesheet" type="text/css" href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"/>
+    <!-- Bootstrap Material Design -->
+    <link rel="stylesheet" type="text/css" href="/css/bootstrap-material-design.css"/>
+    <link rel="stylesheet" type="text/css" href="/css/ripples.css"/>
+    <script src="/js/custom.js"></script>
+</head>
+<body>
+    <h1>Car manager</h1>
+    <div class="container">
+        <div class="row">
+            <div class="col-md-2"><a href="#" class="btn btn-danger btn-fab" onclick="showForm()"><i class="material-icons" >add</i></a></div>
+        </div>
+        <div class="row">
+            <div class="col-md-3"></div>
+            <div class="col-md-6">
+                <div class ="well bs-component" id="form_floating" hidden="true">
+                    <form class="form-horizontal label-floating" th:action="@{/}"  th:object="${carProjection}" method="post" id="submit" >
+                          <fieldset>
+                            <legend>New car</legend>
+                            <div class="form-group">
+                              <label class="col-md-2 control-label">Name</label>
+                              <div class="col-md-10">
+                                <input type="text"  th:field="*{name}" class="form-control" placeholder="Name"/>
+                              </div>
+                            </div>
+                              <h4>Engine</h4>
+                            <div class="form-group">
+                              <label for="inputCapacity" class="col-md-2 control-label">Capacity</label>
+                              <div class="col-md-10">
+                                <input type="text" class="form-control" id="inputCapacity" placeholder="Capacity" th:field="*{engineCapacity}"/>
+                              </div>
+                            </div>
+                            <div class="form-group">
+                              <label for="inputModel" class="col-md-2 control-label">Model</label>
+                              <div class="col-md-10">
+                                <input type="text" class="form-control" id="inputModel" placeholder="Model" th:field="*{engineModel}"/>
+                              </div>
+                            </div>
+                              <h4>Wheels</h4>
+                              <h5>tyres</h5>
+                            <div class="form-group">
+                              <label for="inputBrand" class="col-md-2 control-label">Brand</label>
+                              <div class="col-md-10">
+                                <input type="text" class="form-control" id="inputBrand" placeholder="Brand" th:field="*{tyresBrand}"/>
+                              </div>
+                            </div>
+                            <div class="form-group">
+                              <label for="inputSize" class="col-md-2 control-label">Size</label>
+                              <div class="col-md-10">
+                                <input type="text" class="form-control" id="inputSize" placeholder="Size" th:field="*{tyresSize}"/>
+                              </div>
+                            </div>
+                               <div class="form-group">
+                              <div class="col-md-10 col-md-offset-2">
+                                <button type="button" class="btn btn-default">Cancel</button>
+                                <button type="submit" class="btn btn-primary">Add</button>
+                              </div>
+                            </div>
+                          </fieldset>
+                    </form>
+                </div>
+            </div>
+        <div class="col-md-3"></div>
+    </div>
+    <div class="row">
+      <div class="col-md-1"></div>
+      <div class="col-md-10">
+        <table class="table table-striped table-hover">
+          <thead>
+            <tr>
+                <th>#</th>
+                <th>Name</th>
+                <th>Engine model</th>
+                <th>Engine capacity</th>
+                <th>Tyres brand</th>
+                <th>Tyres size</th>
+                <th style="text-align:center">Delete</th>
+            </tr>
+          </thead>
+          <tbody th:each="c: ${cars}">
+            <tr>
+              <td th:text="${cars.indexOf(c)+1}"></td>
+              <td th:text="${c.name}"></td>
+              <td th:text="${c.engine.model}"></td>
+              <td th:text="${c.engine.capacity}"></td>
+              <td th:text="${c.wheel.get(0).tyres.name}"></td>
+              <td th:text="${c.wheel.get(0).tyres.size}"></td>
+              <td><a th:href="'/delete/'+${c.id}" class="btn btn-raised btn-danger">Delete</a></td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+      <div class="col-md-1"></div>
+    </div>
+</div>
+
+</body>
+</html>
