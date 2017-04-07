@@ -1,0 +1,15 @@
+out/
+target/
+src/test/
+.idea/
+*.iml
+pom.xml
+*.txt
+gradlew
+gradlew.bat
+.gradle/
+build
+gradle/
+META-INF
+*.css
+static/
